@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS Game</title>
+    <link rel="stylesheet" href="RPS.css"/>
+    <script src="RPS.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@100..900&family=Jaro:opsz@6..72&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1 class="header__h1 header__h1--styled">Rock Paper Scissors</h1>
+    </header>
+    <main>
+      <button class="btn--styled rock">✊</button>
+      <button class="btn--styled paper">🤚</button>
+      <button class="btn--styled scissors">✌️</button>
+
+      <div class="btn__layout">
+        <div class="btn-reomve__layout">
+          <p class="win-lose main__text"></p>
+          <p class="result main__text"></p>
+          <p class="scoree main__text"></p>
+          <button class="btn__remove--styled btn--back">Reset Score</button>
+        </div>
+
+        <div class="mode__layout">
+          <select class="select__button" name="mode" id="screen-mode" >
+            <option  value="system">System</option>
+            <option  value="light">Light Mode</option>
+            <option  value="dark">Dark Mode</option>
+          </select>
+        </div>
+      </div>
+    </main>
+
+  </body>
+</html>

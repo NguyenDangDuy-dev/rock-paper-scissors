@@ -1,0 +1,271 @@
+/* RESET */
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+/* VARIEBLES */
+:root {
+  --BODY--COLOR-IMAGE: linear-gradient(
+    hsl(216, 100%, 50%),
+    hsla(211, 91%, 46%, 0.598),
+    hsl(216, 100%, 50%)
+  );
+
+  /* rgba(0, 225, 255, 0.854),
+  rgba(0, 225, 255, 0.555),
+  rgba(255, 255, 255, 0.548),
+  rgba(251, 251, 251, 0.34)
+   */
+  --H1--COLOR: white;
+
+  --BTN--BGCOLOR: #333;
+  --BTN--STYLE-SHADOW-HOVER: 0px 0px 10px 10px rgba(245, 245, 245, 0.747);
+  --BTN--STYLE-SHADOW: 0px 0px 20px 20px rgba(245, 245, 245, 0.543);
+  --BTN--STYLE-BGIMAGE: linear-gradient(
+    hsl(216, 100%, 50%),
+    hsla(211, 91%, 46%, 0.721),
+    hsl(216, 100%, 50%)
+  );
+  --BTN-STYLE-ACTIVE: rgba(0, 0, 0, 0.441);
+
+  --BTN--REMOVE-COLOR: white;
+  --BTN--REMOVE-BGCOLOR: rgba(0, 0, 0, 0.683);
+  --BTN--REMOVE-COLOR-HOVER: #000;
+  --BTN--REMOVE-COLOR-ACTIVE: #000000b4;
+
+  --TEXT--COLOR: white;
+  --FONT--FAMILY: "Roboto Mono", monospace;
+}
+
+/* BLOCKS : html */
+html {
+  color-scheme: dark light;
+  min-height: 100vh;
+}
+/* ELEMENTS : html */
+
+/* MODIFIES : html */
+
+/* BLOCKS : body */
+body {
+  background-image: var(--BODY--COLOR-IMAGE);
+  background-attachment: fixed;
+
+  min-width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--FONT--FAMILY);
+}
+/* ELEMENTS : body */
+
+/* MODIFIES : body */
+
+/* BLOCKS : header */
+
+/* ELEMENTS :  header */
+.header__h1 {
+  color: var(--H1--COLOR);
+  font-size: clamp(3rem, 7rem, 4rem);
+}
+/* MODIFIES :  header */
+.header__h1--styled {
+  padding: 0.2em;
+}
+
+/* BLOCKS : main */
+/* ELEMENTS : main */
+.main__text {
+  color: var(--TEXT--COLOR);
+  font-size: 1.5rem;
+}
+/* MODIFIES : main */
+.btn--styled {
+  font-size: 5rem;
+  margin: 2rem;
+  padding: 0.3em;
+  position: relative;
+  border: none;
+  background-color: var(--BTN--BGCOLOR);
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: var(--BTN--STYLE-SHADOW);
+  background-image: var(--BTN--STYLE-BGIMAGE);
+  transition: box-shadow 0.1s linear, transform 0.3s linear;
+}
+.btn--styled:hover {
+  box-shadow: var(--BTN--STYLE-SHADOW-HOVER);
+  transform: scale(1.1);
+  transition: box-shadow 0.6s ease-in-out, transform 0.1s ease-in-out;
+}
+.btn--styled:active {
+  background-color: var(--BTN-STYLE-ACTIVE);
+}
+
+.btn__layout {
+  display: flex;
+  justify-content: space-between;
+}
+.mode__layout {
+  padding-inline: 0.4em;
+  align-self: center;
+}
+/* MODIFIER : main - btn remove */
+.btn__remove--styled {
+  font-size: 1.25rem;
+  padding: 0.35em 0.85em;
+  color: var(--BTN--REMOVE-COLOR);
+  background-color: var(--BTN--REMOVE-BGCOLOR);
+  cursor: pointer;
+}
+/* Reset Score */
+.btn__remove--styled {
+  border: none;
+  border-radius: 100px;
+}
+.btn__remove--styled:hover {
+  background-color: var(--BTN--REMOVE-COLOR-HOVER);
+}
+
+.btn__remove--styled:active {
+  background-color: var(--BTN--REMOVE-COLOR-ACTIVE);
+}
+
+/* The problem with active, I fixed by Javascript! */
+/* .btn--styled:active::before{
+    visibility: visible;
+} */
+
+/* Effect */
+/* Help research faster */
+/* i prepare a class but it no have in HTML file, that is clicked */
+.btn--styled.clicked::before {
+  visibility: visible;
+  position: absolute;
+  display: inline;
+  content: "✅";
+  font-size: 1.5rem;
+  top: -3rem;
+  left: 3.6rem;
+  animation: scale 40ms;
+}
+
+@keyframes scale {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@media screen and (max-width: 500px) {
+  /* MODIFIES : main */
+  .btn--styled:hover {
+    box-shadow: none;
+    transform: none;
+    transition: none;
+  }
+
+  .select__button {
+    display: none;
+  }
+  /* Reset Score */
+  .btn__remove--styled:hover {
+    background-color: none;
+  }
+}
+
+/* Theme System */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --BODY--COLOR-IMAGE: linear-gradient(
+      hsl(0, 0%, 0%),
+      hsla(0, 2%, 35%, 0.616),
+      hsla(0, 0%, 0%, 0.598)
+    );
+    --H1--COLOR: whitesmoke;
+
+    --BTN--BGCOLOR: #333;
+    --BTN--STYLE-SHADOW-HOVER: 0px 0px 10px 10px rgba(0, 0, 0, 0.523);
+    --BTN--STYLE-SHADOW: 0px 0px 20px 20px rgba(0, 0, 0, 0.384);
+    --BTN--STYLE-BGIMAGE: radial-gradient(
+      rgba(0, 0, 0, 0.283),
+      rgba(0, 0, 0, 0.169),
+      rgba(0, 0, 0, 0.146),
+      rgba(51, 51, 51, 0)
+    );
+    --BTN-STYLE-ACTIVE: rgba(0, 0, 0, 0.441);
+
+    --BTN--REMOVE-COLOR: #000;
+    --BTN--REMOVE-BGCOLOR: rgba(245, 245, 245, 0.781);
+    --BTN--REMOVE-COLOR-HOVER: rgba(245, 245, 245, 0.559);
+    --BTN--REMOVE-COLOR-ACTIVE: rgb(245, 245, 245);
+
+    --TEXT--COLOR: white;
+    --FONT--FAMILY: "Roboto Mono", monospace;
+  }
+}
+
+/* Theme choice*/
+/* We prepare available attribute by css !! It does not exit in HTML */
+/* We create by JAVACSIPT */
+[data-theme="dark"] {
+    
+    color-scheme: dark;
+    --BODY--COLOR-IMAGE: linear-gradient(
+        hsl(0, 0%, 0%),
+        hsla(0, 2%, 35%, 0.616),
+        hsla(0, 0%, 0%, 0.598)
+      );
+      --H1--COLOR: whitesmoke;
+  
+      --BTN--BGCOLOR: #333;
+      --BTN--STYLE-SHADOW-HOVER: 0px 0px 10px 10px rgba(0, 0, 0, 0.523);
+      --BTN--STYLE-SHADOW: 0px 0px 20px 20px rgba(0, 0, 0, 0.384);
+      --BTN--STYLE-BGIMAGE: radial-gradient(
+        rgba(0, 0, 0, 0.283),
+        rgba(0, 0, 0, 0.169),
+        rgba(0, 0, 0, 0.146),
+        rgba(51, 51, 51, 0)
+      );
+      --BTN-STYLE-ACTIVE: rgba(0, 0, 0, 0.441);
+  
+      --BTN--REMOVE-COLOR: whitesmoke;
+      --BTN--REMOVE-BGCOLOR: rgba(0, 0, 0, 0.683);
+      --BTN--REMOVE-COLOR-HOVER: #000;
+      --BTN--REMOVE-COLOR-ACTIVE: #000000b4;
+  
+      --TEXT--COLOR: white;
+      --FONT--FAMILY: "Roboto Mono", monospace;
+}
+
+[data-theme="light"] {
+    color-scheme: light;
+    --BODY--COLOR-IMAGE: linear-gradient(
+    hsl(216, 100%, 50%),
+    hsla(211, 91%, 46%, 0.598),
+    hsl(216, 100%, 50%)
+  );
+  --H1--COLOR: white;
+
+  --BTN--BGCOLOR: #333;
+  --BTN--STYLE-SHADOW-HOVER: 0px 0px 10px 10px rgba(245, 245, 245, 0.747);
+  --BTN--STYLE-SHADOW: 0px 0px 20px 20px rgba(245, 245, 245, 0.543);
+  --BTN--STYLE-BGIMAGE: linear-gradient(
+    hsl(216, 100%, 50%),
+    hsla(211, 91%, 46%, 0.721),
+    hsl(216, 100%, 50%)
+  );
+  --BTN-STYLE-ACTIVE: rgba(0, 0, 0, 0.441);
+
+  --BTN--REMOVE-COLOR: white;
+  --BTN--REMOVE-BGCOLOR: rgba(0, 0, 0, 0.683);
+  --BTN--REMOVE-COLOR-HOVER: #000;
+  --BTN--REMOVE-COLOR-ACTIVE: #000000b4;
+
+  --TEXT--COLOR: white;
+  --FONT--FAMILY: "Roboto Mono", monospace;
+}
